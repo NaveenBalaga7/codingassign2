@@ -279,7 +279,7 @@ app.put("/todos/:todoId/", async (request, response) => {
     case requestBody.status !== undefined:
       if (status === "TO DO" || status === "IN PROGRESS" || status === "DONE") {
         updateTodoQuery = `
-        UPDATE todo SET todo = '${todo}',priority = '${priority}',status = '${status}',category = '${category}','due_date = '${dueDate}' WHERE id =${todoId};`;
+        UPDATE todo SET todo = '${todo}',priority = '${priority}',status = '${status}',category = '${category}',due_date = '${dueDate}' WHERE id ='${todoId}';`;
 
         await database.run(updateTodoQuery);
         response.send("Status Updated");
@@ -292,7 +292,7 @@ app.put("/todos/:todoId/", async (request, response) => {
     case requestBody.priority !== undefined:
       if (priority === "HIGH" || priority === "LOW" || priority === "MEDIUM") {
         updateTodoQuery = `
-        UPDATE todo SET todo = '${todo}',priority = '${priority}',status = '${status}',category = '${category}','due_date = '${dueDate}' WHERE id =${todoId};`;
+        UPDATE todo SET todo = '${todo}',priority = '${priority}',status = '${status}',category = '${category}',due_date = '${dueDate}' WHERE id ='${todoId}';`;
 
         await database.run(updateTodoQuery);
         response.send("Priority Updated");
@@ -304,7 +304,7 @@ app.put("/todos/:todoId/", async (request, response) => {
 
     case requestBody.todo !== undefined:
       updateTodoQuery = `
-        UPDATE todo SET todo = '${todo}',priority = '${priority}',status = '${status}',category = '${category}','due_date = '${dueDate}' WHERE id =${todoId};`;
+        UPDATE todo SET todo = '${todo}',priority = '${priority}',status = '${status}',category = '${category}',due_date = '${dueDate}' WHERE id ='${todoId}';`;
 
       await database.run(updateTodoQuery);
       response.send("Todo Updated");
@@ -317,7 +317,7 @@ app.put("/todos/:todoId/", async (request, response) => {
         category === "LEARNING"
       ) {
         updateTodoQuery = `
-            UPDATE todo SET todo = '${todo}',priority = '${priority}',status = '${status}',category = '${category}','due_date = '${dueDate}' WHERE id =${todoId};`;
+            UPDATE todo SET todo = '${todo}',priority = '${priority}',status = '${status}',category = '${category}',due_date = '${dueDate}' WHERE id ='${todoId}';`;
 
         await database.run(updateTodoQuery);
         response.send("Category Updated");
@@ -331,7 +331,7 @@ app.put("/todos/:todoId/", async (request, response) => {
       if (isMatch(dueDate, "yyyy-MM-dd")) {
         const newDueDate = format(new Date(dueDate), "yyyy-MM-dd");
         updateTodoQuery = `
-            UPDATE todo SET todo = '${todo}',priority = '${priority}',status = '${status}',category = '${category}','due_date = '${dueDate}' WHERE id =${todoId};`;
+            UPDATE todo SET todo = '${todo}',priority = '${priority}',status = '${status}',category = '${category}',due_date = '${dueDate}' WHERE id ='${todoId}';`;
 
         await database.run(updateTodoQuery);
         response.send("Due Date Updated");
