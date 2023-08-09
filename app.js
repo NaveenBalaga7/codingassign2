@@ -210,7 +210,7 @@ app.get("/agenda/", async (request, response) => {
   const { date } = request.query;
   console.log(isMatch(date, "yyyy-MM-dd"));
   if (isMatch(date, "yyyy-MM-dd")) {
-    const newDate = format(new Date(2021, 1, 21), "yyyy-MM-dd");
+    const newDate = format(new Date(date), "yyyy-MM-dd");
     console.log(newDate);
     const requestQuery = `SELECT * FROM todo WHERE due_date= '${newDate}';`;
     const responseResult = await database.all(requestQuery);
